@@ -34,4 +34,3 @@ The command should like
 Verify the effect by running `docker image ls` and `minikube image ls`, they should show the same images.
 
 When you want to switch it back to local docker repository, simply restart the shell. As the ENV variables will drop after restart.
-
