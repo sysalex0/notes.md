@@ -53,6 +53,10 @@ kubectl delete all --all
 ```shell
 kubectl run [name] --image [image_name] --dry-run client -o yaml > [filename].yaml
 ```
+### Start pod using a different command and custom arguments
+```sh
+kubectl run nginx --image=nginx --command -- <cmd> <arg1> ... <argN>
+```
 ### modify pod properties
 Some properties can be edited by command
 - spec.containers[*].image
@@ -82,10 +86,31 @@ kubectl expose pod [pod_name] --port=[port_number] --name [service_name]
 kubectl expose pod [pod_name] --port=[port_number] --name [service_name] --expose=true
 ```
 
+## ConfigMap related command
+create config map with literal value
+```sh
+kubectl create configmap [name] --from-literal=key1=config1 --from-literal=key2=config2
+```
+
+## Secret related command
+create secret with literal value
+```sh
+kubectl create secret [name] generic --from-literal=key1=val1
+
 ## Execute command directly
 ### Attach the bash of a pod
 ```shell
 kubectl exec -it [pod_id] -- bash
+```
+
+## Taints and Tolerations
+Taints a node
+```sh
+kubectl taint nodes node-name key=value:[taint-effect]
+```
+Untaints a node, add a minus side at the taints command
+```sh
+kubectl taint nodes node-name key=value:[taint-effect]-
 ```
 
 ## Networking command
