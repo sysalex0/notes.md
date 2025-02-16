@@ -112,6 +112,11 @@ Untaints a node, add a minus side at the taints command
 ```sh
 kubectl taint nodes node-name key=value:[taint-effect]-
 ```
+## Label nodes
+Add a node new labels
+```sh
+kubectl label nodes nodes [node-name] key=value
+```
 
 ## Networking command
 ### Port forward to localhost port from a service
