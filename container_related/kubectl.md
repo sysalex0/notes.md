@@ -10,6 +10,10 @@ kubectl describe [kind] [resource_name]
 kubectl get [kind]s
 kubectl get [kind_short_form]
 ```
+### Get by labels
+```shell
+kubectl get pods --selector key=value,key2=val2
+```
 ### Check yaml fields
 explain the kubernetes kind object fields
 ```shell
@@ -116,6 +120,19 @@ kubectl taint nodes node-name key=value:[taint-effect]-
 Add a node new labels
 ```sh
 kubectl label nodes nodes [node-name] key=value
+```
+
+## Deployment related commands
+### update the deployment
+```sh
+kubectl apply -f deplyoment-definition.yaml
+kubectl set image deploy deploy-name container_name=new_image_name:version
+```
+### rollout 
+```sh
+kubectl rollout status deploy deploy_name
+kubectl rollout history deploy deploy_name
+kubectl rollout undo deploy
 ```
 
 ## Networking command
